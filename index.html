@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio - Kevin Stenio Duarte</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* === ESTILO PERSONALIZADO === */
+      body {
+        background-color: #0d0d0d;
+        color: #e0e0e0;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      h1,
+      h2,
+      h3,
+      a {
+        color: #d4af37;
+      }
+
+      a {
+        color: #d4af37;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #fff;
+      }
+
+      header.navbar {
+        background-color: #0a0a0a;
+        border-bottom: 1px solid #222;
+      }
+
+      /* #navbar {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease-in-out;
+      } */
+      #navbar.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      section {
+        padding: 80px 0;
+        border-bottom: 1px solid #222;
+      }
+
+      .hero {
+        min-height: 100vh;
+        padding-top: 100px;
+      }
+
+      .hero img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #d4af37;
+        background: #1a1a1a;
+      }
+
+      /* === HABILIDADES EM CARDS === */
+      .habilidades-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .habilidade-card {
+        background: #1a1a1a;
+        border: 1px solid #2c2c2c;
+        border-top: 3px solid #d4af37;
+        border-radius: 10px;
+        width: 130px;
+        height: 130px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .habilidade-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .habilidade-card img {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+      }
+
+      .habilidade-card h6 {
+        color: #e0e0e0;
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      .projetos .card {
+        background: #1a1a1a;
+        border: 1px solid #2c2c2c;
+        border-left: 3px solid #d4af37;
+        color: #e0e0e0;
+      }
+
+      /* === CURRÍCULO (ESTILO FOLHA DOURADA) === */
+      .curriculo-card {
+        background: #1a1a1a;
+        border: 2px solid #d4af37;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+        max-width: 800px;
+        color: #e0e0e0;
+        line-height: 1.7;
+        transition: all 0.3s ease;
+      }
+
+      .curriculo-card:hover {
+        box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+        transform: translateY(-3px);
+      }
+
+      .curriculo-card a {
+        color: #d4af37;
+      }
+
+      .curriculo-card a:hover {
+        text-decoration: underline;
+      }
+
+      .linha-dourada {
+        border-top: 1px solid #d4af37;
+        width: 80%;
+        margin: 1rem auto;
+      }
+
+      .curriculo-card ul {
+        padding-left: 1.2rem;
+      }
+
+      .curriculo-card li {
+        margin-bottom: 0.5rem;
+      }
+
+      .modal-content {
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+      }
+
+      .modal-backdrop.show {
+        opacity: 0.85;
+      }
+
+      footer {
+        background: #0a0a0a;
+        color: #777;
+        padding: 30px 0;
+        border-top: 1px solid #222;
+      }
+
+      @media (max-width: 768px) {
+        .hero {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-warning" href="#">Kevin Duarte</a>
+        <button
+          class="navbar-toggler bg-warning"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="menu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="#sobre">Sobre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="#habilidades"
+                >Habilidades</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="#projetos">Projetos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="#formacao">Formação</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-warning" href="#curriculo">Curriculo</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero d-flex align-items-center" id="inicio">
+      <div class="container text-md-start text-center">
+        <div class="row align-items-center">
+          <div class="col-md-4 order-1 order-md-2 text-center">
+            <img
+              src="/img/Imagem do WhatsApp de Kevin.jpg"
+              alt="Foto de perfil"
+              class="img-fluid mt-4 mt-md-0"
+            />
+          </div>
+
+          <div class="col-md-7 order-2 order-md-1">
+            <h2 class="fw-bold mb-2">Kevin Stenio Fernandes Lacerda Duarte</h2>
+            <h4 class="text-warning mb-3">Desenvolvedor Fullstack</h4>
+            <p>
+              Estudante de Análise e Desenvolvimento de Sistemas (5º semestre -
+              Senac). Experiência com Java, Spring Boot, HTML, CSS, JS e MySQL.
+              Buscando consolidar minha carreira como desenvolvedor de sistemas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre">
+      <div class="container">
+        <h2 class="text-center mb-4">Sobre Mim</h2>
+        <p class="lead text-center mb-4">
+          Tenho 26 anos e sou estudante do 5º semestre de
+          <strong>Análise e Desenvolvimento de Sistemas</strong> pelo
+          <strong>Centro Universitário Senac</strong>. Possuo uma base sólida em
+          lógica de programação, programação orientada a objetos e
+          desenvolvimento web. Tenho experiência com
+          <strong>Java, Spring Boot, HTML, CSS, JavaScript e MySQL</strong>,
+          além de conhecimentos em <strong>React Native, Bootstrap</strong> e
+          <strong>AWS Cloud</strong>. Busco sempre aprimorar minhas habilidades
+          técnicas, com foco em me tornar desenvolvedor full stack e criar
+          soluções eficientes e escaláveis.
+        </p>
+        <p class="text-center">
+          Atuei como <strong>Estagiário em TI na S8ITech</strong>, onde
+          participei de atividades voltadas à infraestrutura de TI, hospedagem
+          de sites, e-commerce e governança em SAP (gestão de usuários e
+          acessos). Também dei apoio em desenvolvimento e personalização de
+          sistemas com JavaScript, além de lidar com resolução de problemas
+          técnicos e documentação de projetos. Essa experiência me proporcionou
+          uma visão ampla sobre ambientes corporativos de tecnologia e reforçou
+          minha capacidade de trabalhar em equipe, aprender rapidamente e
+          entregar soluções práticas.
+        </p>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades">
+      <div class="container">
+        <h2 class="text-center mb-4">Habilidades Técnicas</h2>
+        <div class="habilidades-cards">
+          <div class="habilidade-card">
+            <img src="img/png-java.png" alt="Java" />
+            <h6>Java</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-springboot.png" alt="Spring Boot" />
+            <h6>Spring Boot</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-html.png" alt="HTML" />
+            <h6>HTML</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-css.png" alt="CSS" />
+            <h6>CSS</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-js.png" alt="JavaScript" />
+            <h6>JavaScript</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-reactnative.webp" alt="React Native" />
+            <h6>React Native</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-mysql.png" alt="MySQL" />
+            <h6>MySQL</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-aws.png" alt="AWS" />
+            <h6>AWS Cloud</h6>
+          </div>
+
+          <div class="habilidade-card">
+            <img src="img/png-github.webp" alt="GitHub" />
+            <h6>Git / GitHub</h6>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos">
+      <div class="container">
+        <h2 class="text-center mb-4">Projetos Acadêmicos</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>🎮 RPG em Java</h5>
+              <p>
+                Jogo de múltiplas escolhas com POO, finais alternativos e
+                sistema de tentativas.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>🌐 Página Web Estática</h5>
+              <p>
+                Site com HTML, CSS e JS, contendo formulário e estrutura de
+                conteúdo simples.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>🛒 CRUD em Java</h5>
+              <p>
+                Sistema para loja de violões, com operações de cadastro, leitura
+                e exclusão.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>📱 App de Aluguel de Carros PCD</h5>
+              <p>
+                Aplicativo mobile em React Native com múltiplas telas e
+                documentação UML.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card p-3">
+              <h5>📰 Blog em Spring Boot</h5>
+              <p>
+                Projeto completo com frontend HTML/CSS/JS, backend em Spring
+                Boot e banco MySQL.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMAÇÃO -->
+    <section id="formacao">
+      <div class="container text-center">
+        <h2 class="mb-3">Formação Acadêmica</h2>
+        <p>
+          <strong>Centro Universitário Senac – Polo Jabaquara</strong><br />
+          Curso Superior de Tecnologia em Análise e Desenvolvimento de
+          Sistemas<br />
+          5º semestre – Conclusão prevista: Dezembro/2025
+        </p>
+      </div>
+    </section>
+
+    <!-- CURRÍCULO -->
+    <section id="curriculo">
+      <div class="container">
+        <h2 class="text-center mb-4"><strong>Curriculo</strong></h2>
+        <div class="curriculo-card mx-auto p-4 p-md-5">
+          <h2 class="text-center text-warning mb-4 fw-bold">
+            Kevin Stenio Fernandes Lacerda Duarte
+          </h2>
+          <hr class="linha-dourada mb-4" />
+
+          <p>Solteiro | Nascimento: 28/08/1999 - (26 Anos)</p>
+          <p>Jardim Selma, São Paulo - SP | CEP: 04431-100</p>
+          <p>📞 (11) 95919-2103 | 📧 kevin1157.kd@gmail.com</p>
+          <p>
+            🔗
+            <a
+              href="https://linkedin.com/in/kevin-duarte-79b651293"
+              target="_blank"
+              >LinkedIn</a
+            >
+            | 💻
+            <a href="https://github.com/kevin1157duarte" target="_blank"
+              >GitHub</a
+            >
+          </p>
+
+          <hr class="linha-dourada" />
+          <h5 class="text-warning mt-4 mb-2">Resumo Profissional</h5>
+          <p>
+            Profissional em formação na área de TI, cursando o 5º semestre de
+            <strong
+              >Análise e Desenvolvimento de Sistemas (Senac – conclusão em
+              2025)</strong
+            >. Experiência como Analista de Suporte em TI com foco em
+            infraestrutura, hospedagem de sites, e-commerce e governança de TI
+            em SAP. Vivência prática em projetos com
+            <strong
+              >Java, Spring Boot, HTML, CSS, JavaScript, React Native e
+              MySQL</strong
+            >. Perfil colaborativo, adaptável e em constante evolução.
+          </p>
+
+          <h5 class="text-warning mt-4 mb-2">Objetivo</h5>
+          <p>
+            Atuar como
+            <strong>Desenvolvedor de Sistemas (Backend ou Fullstack)</strong>,
+            aplicando conhecimentos em
+            <strong>Java, Spring Boot, HTML, CSS, JavaScript e MySQL</strong>.
+            Busco contribuir para projetos inovadores enquanto continuo
+            evoluindo tecnicamente, especialmente em backend e governança de TI.
+          </p>
+
+          <h5 class="text-warning mt-4 mb-2">Habilidades Técnicas</h5>
+          <ul class="text-start">
+            <li>
+              <strong>Linguagens e Frameworks:</strong> Java, Spring Boot,
+              JavaScript, HTML, CSS, React Native
+            </li>
+            <li><strong>Banco de Dados:</strong> MySQL, SQL, H2 (acadêmico)</li>
+            <li>
+              <strong>Conceitos:</strong> Lógica de Programação, POO, UML,
+              Usabilidade
+            </li>
+            <li>
+              <strong>Ferramentas:</strong> GitHub, Excel, Word, Windows,
+              Internet
+            </li>
+            <li>
+              <strong>Infraestrutura:</strong> AWS Cloud Foundations, SAP
+              (Governança de TI)
+            </li>
+          </ul>
+
+          <h5 class="text-warning mt-4 mb-2">Formação Acadêmica</h5>
+          <p>
+            <strong>Centro Universitário Senac – Polo Jabaquara</strong><br />
+            Curso: Análise e Desenvolvimento de Sistemas – Superior Tecnólogo<br />
+            Duração: 5 semestres | Conclusão: Dezembro/2025
+          </p>
+
+          <h5 class="text-warning mt-4 mb-2">Projetos Acadêmicos</h5>
+          <ul class="text-start">
+            <li>🎮 RPG em Java – jogo de múltiplas escolhas com POO.</li>
+            <li>
+              🌐 Página Web Estática – HTML, CSS e JS, com formulário e
+              conteúdo.
+            </li>
+            <li>
+              🛒 CRUD em Java – sistema para loja de violões (cadastro, leitura
+              e exclusão).
+            </li>
+            <li>
+              📱 App de Aluguel de Carros PCD – React Native com documentação
+              UML.
+            </li>
+            <li>
+              📰 Blog em Spring Boot – frontend HTML/CSS/JS, backend Spring Boot
+              e MySQL.
+            </li>
+          </ul>
+
+          <h5 class="text-warning mt-4 mb-2">Experiência Profissional</h5>
+          <ul class="text-start">
+            <li>
+              <strong>S8ITech (Estágio)</strong> – Analista de Suporte em TI |
+              05/2025 – 09/2025<br />
+              • Infraestrutura de TI, hospedagem de sites e domínios.<br />
+              • Governança em SAP (ECC, S/4HANA).<br />
+              • Suporte técnico e desenvolvimento em JavaScript.<br />
+              • Personalização de e-commerce (Loja Integrada).<br />
+              📞 Contato: Alessandro – (11) 96932-4378
+            </li>
+            <br />
+            <li>
+              <strong>HI Montagens</strong> – Assistente de Laboratório |
+              08/2021 – 08/2024<br />
+              • Operação de máquinas para modelagem de lentes.<br />
+              • Organização e apoio ao montador principal.<br />
+              📞 Contato: Piter – (11) 96220-1842
+            </li>
+            <br />
+            <li>
+              <strong>Óptica Hello</strong> – Empacotador / Assistente de
+              Logística | 09/2019 – 10/2020<br />
+              • Digitalização de produtos e serviços.<br />
+              • Controle logístico e despacho de pedidos.<br />
+              📞 Contato: Meire – (11) 96282-1008
+            </li>
+          </ul>
+
+          <h5 class="text-warning mt-4 mb-2">Cursos Complementares</h5>
+          <ul class="text-start">
+            <li>
+              <strong>AWS Academy Cloud Foundations</strong> (40h) –
+              <a
+                href="certificados.html#aws"
+                class="btn btn-sm btn-outline-warning ms-2"
+                >Ver Certificado</a
+              >
+            </li>
+
+            <li>
+              <strong>Database Foundations – Oracle Academy</strong> (40h) –
+              <a
+                href="certificados.html#oracle"
+                class="btn btn-sm btn-outline-warning ms-2"
+                >Ver Certificado</a
+              >
+            </li>
+
+            <li>
+              <strong>Versionamento de Código Git e GitHub - Dio.</strong> (2h) –
+              <a
+                href="certificados.html#git"
+                class="btn btn-sm btn-outline-warning ms-2"
+                >Ver Certificado</a
+              >
+            </li>
+
+            <li>
+              <strong>Aprender a Empreender – Sebrae</strong> (40h)
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center">
+      <p>© 2025 Kevin Stenio Duarte – Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script para exibir a navbar ao rolar a página -->
+    <!-- <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+
+        // Exibe a navbar depois de 100px de scroll
+        if (window.scrollY > 100) {
+          navbar.classList.add("visible");
+        }  else {
+          navbar.classList.remove("visible");
+        } 
+      });
+    </script> -->
+  </body>
+</html>

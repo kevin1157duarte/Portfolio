@@ -41,11 +41,11 @@
         border-bottom: 1px solid #222;
       }
 
-      /* #navbar {
+      #navbar {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.5s ease-in-out;
-      } */
+      }
       #navbar.visible {
         opacity: 1;
         pointer-events: auto;
@@ -68,6 +68,32 @@
         object-fit: cover;
         border: 3px solid #d4af37;
         background: #1a1a1a;
+      }
+      /* === BOTÕES HERO CTA === */
+      .hero .btn {
+        border-radius: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .hero .btn-warning {
+        background-color: #d4af37;
+        border: none;
+        color: #0d0d0d;
+      }
+
+      .hero .btn-warning:hover {
+        background-color: #b9942a;
+        color: #fff;
+      }
+
+      .hero .btn-outline-warning {
+        border: 2px solid #d4af37;
+        color: #d4af37;
+      }
+
+      .hero .btn-outline-warning:hover {
+        background-color: #d4af37;
+        color: #0d0d0d;
       }
 
       /* === HABILIDADES EM CARDS === */
@@ -108,6 +134,36 @@
         color: #e0e0e0;
         font-size: 0.95rem;
         margin: 0;
+      }
+
+      /* === BALÃO DE INFORMAÇÃO DAS HABILIDADES === */
+      .habilidade-card {
+        position: relative;
+      }
+
+      .habilidade-tooltip {
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(26, 26, 26, 0.95);
+        color: #d4af37;
+        border: 1px solid #d4af37;
+        border-radius: 8px;
+        padding: 8px 12px;
+        width: 160px;
+        text-align: center;
+        font-size: 0.85rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      .habilidade-card:hover .habilidade-tooltip,
+      .habilidade-card.active .habilidade-tooltip {
+        opacity: 1;
+        pointer-events: auto;
       }
 
       .projetos .card {
@@ -235,6 +291,31 @@
               Senac). Experiência com Java, Spring Boot, HTML, CSS, JS e MySQL.
               Buscando consolidar minha carreira como desenvolvedor de sistemas.
             </p>
+            <div class="mt-4 d-flex flex-wrap gap-3">
+              <a href="#sobre" class="btn btn-outline-warning fw-semibold px-4"
+                >Sobre</a
+              >
+              <a
+                href="#habilidades"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Habilidades</a
+              >
+              <a
+                href="#projetos"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Projetos</a
+              >
+              <a
+                href="#formacao"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Formação</a
+              >
+              <a
+                href="#curriculo"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Currículo</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -256,6 +337,7 @@
           técnicas, com foco em me tornar desenvolvedor full stack e criar
           soluções eficientes e escaláveis.
         </p>
+        <h2 class="text-center mb-4">Minhas Experiência</h2>
         <p class="text-center">
           Atuei como <strong>Estagiário em TI na S8ITech</strong>, onde
           participei de atividades voltadas à infraestrutura de TI, hospedagem
@@ -278,6 +360,9 @@
           <div class="habilidade-card">
             <img src="img/png-java.png" alt="Java" />
             <h6>Java</h6>
+            <div class="habilidade-tooltip">
+              Aqui você vai colocar o texto descritivo do Java.
+            </div>
           </div>
 
           <div class="habilidade-card">
@@ -541,7 +626,8 @@
             </li>
 
             <li>
-              <strong>Versionamento de Código Git e GitHub - Dio.</strong> (2h) –
+              <strong>Versionamento de Código Git e GitHub - Dio.</strong> (2h)
+              –
               <a
                 href="certificados.html#git"
                 class="btn btn-sm btn-outline-warning ms-2"
@@ -549,9 +635,7 @@
               >
             </li>
 
-            <li>
-              <strong>Aprender a Empreender – Sebrae</strong> (40h)
-            </li>
+            <li><strong>Aprender a Empreender – Sebrae</strong> (40h)</li>
           </ul>
         </div>
       </div>
@@ -566,18 +650,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script para exibir a navbar ao rolar a página -->
-    <!-- <script>
+    <script>
       window.addEventListener("scroll", function () {
         const navbar = document.getElementById("navbar");
 
         // Exibe a navbar depois de 100px de scroll
         if (window.scrollY > 100) {
           navbar.classList.add("visible");
-        }  else {
+        } else {
           navbar.classList.remove("visible");
-        } 
+        }
       });
-    </script> -->
+    </script>
+    <script>
+      // Mostra o tooltip ao clicar OU passar o mouse
+      document.querySelectorAll(".habilidade-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.classList.add("active");
+        });
+        card.addEventListener("mouseleave", () => {
+          card.classList.remove("active");
+        });
+        card.addEventListener("click", () => {
+          card.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>
-

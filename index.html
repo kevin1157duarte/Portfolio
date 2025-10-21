@@ -41,11 +41,11 @@
         border-bottom: 1px solid #222;
       }
 
-      /* #navbar {
+      #navbar {
         opacity: 0;
         pointer-events: none;
         transition: opacity 0.5s ease-in-out;
-      } */
+      }
       #navbar.visible {
         opacity: 1;
         pointer-events: auto;
@@ -68,6 +68,32 @@
         object-fit: cover;
         border: 3px solid #d4af37;
         background: #1a1a1a;
+      }
+      /* === BOTÕES HERO CTA === */
+      .hero .btn {
+        border-radius: 30px;
+        transition: all 0.3s ease;
+      }
+
+      .hero .btn-warning {
+        background-color: #d4af37;
+        border: none;
+        color: #0d0d0d;
+      }
+
+      .hero .btn-warning:hover {
+        background-color: #b9942a;
+        color: #fff;
+      }
+
+      .hero .btn-outline-warning {
+        border: 2px solid #d4af37;
+        color: #d4af37;
+      }
+
+      .hero .btn-outline-warning:hover {
+        background-color: #d4af37;
+        color: #0d0d0d;
       }
 
       /* === HABILIDADES EM CARDS === */
@@ -110,11 +136,69 @@
         margin: 0;
       }
 
+      /* === BALÃO DE INFORMAÇÃO DAS HABILIDADES === */
+      .habilidade-card {
+        position: relative;
+      }
+
+      .habilidade-tooltip {
+        position: absolute;
+        bottom: 120%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(26, 26, 26, 0.95);
+        color: #d4af37;
+        border: 1px solid #d4af37;
+        border-radius: 8px;
+        padding: 8px 12px;
+        width: 160px;
+        text-align: center;
+        font-size: 0.85rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      .habilidade-card:hover .habilidade-tooltip,
+      .habilidade-card.active .habilidade-tooltip {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
       .projetos .card {
         background: #1a1a1a;
         border: 1px solid #2c2c2c;
         border-left: 3px solid #d4af37;
         color: #e0e0e0;
+      }
+
+      /* === Formação Academica === */
+      .carousel-indicators [data-bs-target] {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #d4af37;
+        opacity: 0.6;
+        transition: opacity 0.3s ease;
+      }
+
+      .carousel-indicators .active {
+        opacity: 1;
+      }
+
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-size: 100% 100%;
+        filter: invert(0.1) sepia(1) saturate(10) hue-rotate(10deg);
+      }
+      .logo-senac {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgb(184, 184, 184);
+        width: 300px;
+        height: auto;
       }
 
       /* === CURRÍCULO (ESTILO FOLHA DOURADA) === */
@@ -235,6 +319,31 @@
               Senac). Experiência com Java, Spring Boot, HTML, CSS, JS e MySQL.
               Buscando consolidar minha carreira como desenvolvedor de sistemas.
             </p>
+            <div class="mt-4 d-flex flex-wrap gap-3">
+              <a href="#sobre" class="btn btn-outline-warning fw-semibold px-4"
+                >Sobre</a
+              >
+              <a
+                href="#habilidades"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Habilidades</a
+              >
+              <a
+                href="#projetos"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Projetos</a
+              >
+              <a
+                href="#formacao"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Formação</a
+              >
+              <a
+                href="#curriculo"
+                class="btn btn-outline-warning fw-semibold px-4"
+                >Currículo</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -256,6 +365,7 @@
           técnicas, com foco em me tornar desenvolvedor full stack e criar
           soluções eficientes e escaláveis.
         </p>
+        <h2 class="text-center mb-4">Minhas Experiência</h2>
         <p class="text-center">
           Atuei como <strong>Estagiário em TI na S8ITech</strong>, onde
           participei de atividades voltadas à infraestrutura de TI, hospedagem
@@ -278,6 +388,9 @@
           <div class="habilidade-card">
             <img src="img/png-java.png" alt="Java" />
             <h6>Java</h6>
+            <!-- <div class="habilidade-tooltip">
+              Aqui você vai colocar o texto descritivo do Java.
+            </div> -->
           </div>
 
           <div class="habilidade-card">
@@ -387,6 +500,330 @@
           Sistemas<br />
           5º semestre – Conclusão prevista: Dezembro/2025
         </p>
+
+        <!-- Carrossel -->
+        <div
+          id="carrosselFormacao"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="img/img_Senac/1.jpg"
+                class="d-block w-100"
+                alt="Imagem 1"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/2.jpg"
+                class="d-block w-100"
+                alt="Imagem 2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/3.jpg"
+                class="d-block w-100"
+                alt="Imagem 3"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/4.jpg"
+                class="d-block w-100"
+                alt="Imagem 4"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/5.jpg"
+                class="d-block w-100"
+                alt="Imagem 5"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/6.jpg"
+                class="d-block w-100"
+                alt="Imagem 6"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/7.jpg"
+                class="d-block w-100"
+                alt="Imagem 7"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/7,2.jpg"
+                class="d-block w-100"
+                alt="Imagem 7.2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/8.jpg"
+                class="d-block w-100"
+                alt="Imagem 8"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/9.jpg"
+                class="d-block w-100"
+                alt="Imagem 9"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/10.jpg"
+                class="d-block w-100"
+                alt="Imagem 10"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/11.jpg"
+                class="d-block w-100"
+                alt="Imagem 11"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/12.jpg"
+                class="d-block w-100"
+                alt="Imagem 12"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/13.jpg"
+                class="d-block w-100"
+                alt="Imagem 13"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/14.jpg"
+                class="d-block w-100"
+                alt="Imagem 14"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/15.jpg"
+                class="d-block w-100"
+                alt="Imagem 15"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/16.jpg"
+                class="d-block w-100"
+                alt="Imagem 16"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/16,2.jpg"
+                class="d-block w-100"
+                alt="Imagem 16.2"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/17.jpg"
+                class="d-block w-100"
+                alt="Imagem 17"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/18.jpg"
+                class="d-block w-100"
+                alt="Imagem 18"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/19.jpg"
+                class="d-block w-100"
+                alt="Imagem 19"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="img/img_Senac/20.jpg"
+                class="d-block w-100"
+                alt="Imagem 20"
+              />
+            </div>
+          </div>
+
+          <!-- Controles -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carrosselFormacao"
+            data-bs-slide="prev"
+          >
+            <span
+              class="carousel-control-prev-icon bg-warning rounded-circle p-2"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carrosselFormacao"
+            data-bs-slide="next"
+          >
+            <span
+              class="carousel-control-next-icon bg-warning rounded-circle p-2"
+              aria-hidden="true"
+            ></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+
+          <!-- Indicadores com estilo dourado -->
+          <div class="carousel-indicators mt-4">
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="5"
+              aria-label="Slide 6"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="6"
+              aria-label="Slide 7"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="7"
+              aria-label="Slide 8"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="8"
+              aria-label="Slide 9"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="9"
+              aria-label="Slide 10"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="10"
+              aria-label="Slide 11"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="11"
+              aria-label="Slide 12"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="12"
+              aria-label="Slide 13"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="13"
+              aria-label="Slide 14"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="14"
+              aria-label="Slide 15"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="15"
+              aria-label="Slide 16"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="16"
+              aria-label="Slide 17"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="17"
+              aria-label="Slide 18"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="18"
+              aria-label="Slide 19"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carrosselFormacao"
+              data-bs-slide-to="19"
+              aria-label="Slide 20"
+            ></button>
+          </div>
+          <div class="logo-senac">
+            <img
+              class="logo-senac"
+              src="img/img_Senac/Senac_logo.webp"
+              alt="logo-senac"
+            />
+          </div>
+        </div>
+        <div><a href="https://www.sp.senac.br/visitavirtual/Santo_Amaro/#5482612p&37.95h&87.93t"><p>Click aki! E faça uma visita virtual no Senac</p></a></div>
       </div>
     </section>
 
@@ -541,7 +978,8 @@
             </li>
 
             <li>
-              <strong>Versionamento de Código Git e GitHub - Dio.</strong> (2h) –
+              <strong>Versionamento de Código Git e GitHub - Dio.</strong> (2h)
+              –
               <a
                 href="certificados.html#git"
                 class="btn btn-sm btn-outline-warning ms-2"
@@ -549,9 +987,7 @@
               >
             </li>
 
-            <li>
-              <strong>Aprender a Empreender – Sebrae</strong> (40h)
-            </li>
+            <li><strong>Aprender a Empreender – Sebrae</strong> (40h)</li>
           </ul>
         </div>
       </div>
@@ -566,18 +1002,31 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Script para exibir a navbar ao rolar a página -->
-    <!-- <script>
+    <script>
       window.addEventListener("scroll", function () {
         const navbar = document.getElementById("navbar");
 
         // Exibe a navbar depois de 100px de scroll
         if (window.scrollY > 100) {
           navbar.classList.add("visible");
-        }  else {
+        } else {
           navbar.classList.remove("visible");
-        } 
+        }
       });
-    </script> -->
+    </script>
+    <script>
+      // Mostra o tooltip ao clicar OU passar o mouse
+      document.querySelectorAll(".habilidade-card").forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          card.classList.add("active");
+        });
+        card.addEventListener("mouseleave", () => {
+          card.classList.remove("active");
+        });
+        card.addEventListener("click", () => {
+          card.classList.toggle("active");
+        });
+      });
+    </script>
   </body>
 </html>
-
